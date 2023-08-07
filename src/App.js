@@ -11,7 +11,7 @@ import EditProject from "./components/EditProject";
 import Tickets from "./components/Tickets";
 import CreateTicket from "./components/CreateTicket";
 import EditTicket from "./components/EditTicket";
-// import Login from "./components/Login";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
           <Route path="/createTicket" element={<CreateTicket />} />
           <Route path="/ticketEdit/:id" element={<EditTicket />} />
         </Route>
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

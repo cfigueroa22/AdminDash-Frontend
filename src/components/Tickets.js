@@ -10,7 +10,7 @@ const Tickets = () => {
   useEffect(() => {
     axios
 
-      .get("https://admindash-server-production.up.railway.app/getTickets")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/getTickets`)
       .then((res) => {
         if (res.data.Status === "Success") {
           setData(res.data.Result);
@@ -22,9 +22,7 @@ const Tickets = () => {
   const deleteTicket = (id) => {
     axios
 
-      .delete(
-        "https://admindash-server-production.up.railway.app/deleteTickets/" + id
-      )
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/deleteTickets/` + id)
       .then((res) => {
         if (res.data.Status === "Success") {
           window.location.reload(true);

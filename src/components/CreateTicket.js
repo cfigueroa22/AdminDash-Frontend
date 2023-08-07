@@ -23,10 +23,7 @@ const CreateTicket = () => {
     formData.append("assignee", data.assignee);
     axios
 
-      .post(
-        "https://admindash-server-production.up.railway.app/createTicket",
-        data
-      )
+      .post(`${process.env.REACT_APP_BACKEND_URL}/createTicket`, data)
       .then((res) => {
         navigate("/tickets");
       })

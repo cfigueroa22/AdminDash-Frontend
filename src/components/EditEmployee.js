@@ -28,7 +28,7 @@ const EditEmployee = () => {
   useEffect(() => {
     axios
 
-      .get("https://admindash-server-production.up.railway.app/get/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/get/` + id)
       .then((res) => {
         if (res.data.Result.length > 0) {
           const {
@@ -75,10 +75,7 @@ const EditEmployee = () => {
     e.preventDefault();
     axios
 
-      .put(
-        "https://admindash-server-production.up.railway.app/update/" + id,
-        data
-      )
+      .put(`${process.env.REACT_APP_BACKEND_URL}/update/` + id, data)
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/employee");

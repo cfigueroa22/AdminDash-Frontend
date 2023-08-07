@@ -17,7 +17,7 @@ const EditProject = () => {
   useEffect(() => {
     axios
 
-      .get("https://admindash-server-production.up.railway.app/getTicket/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/getTicket/` + id)
       .then((res) => {
         if (res.data.Result.length > 0) {
           const { title, desc, priority, status, assignee } =
@@ -41,10 +41,7 @@ const EditProject = () => {
     e.preventDefault();
     axios
 
-      .put(
-        "https://admindash-server-production.up.railway.app/updateTicket/" + id,
-        data
-      )
+      .put(`${process.env.REACT_APP_BACKEND_URL}/updateTicket/` + id, data)
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/tickets");

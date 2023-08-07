@@ -11,24 +11,22 @@ const Dashboard = () => {
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    axios
-      .get("https://admindash-server-production.up.railway.app/dashboard")
-      .then((res) => {
-        if (res.data.Status === "Success") {
-          navigate("/");
-        }
-      });
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/dashboard`).then((res) => {
+      if (res.data.Status === "Success") {
+        navigate("/");
+      }
+    });
   }, [navigate]);
 
-  // const handleLogout = () => {
-  //   axios
+  const handleLogout = () => {
+    axios
 
-  //     .get("/logout")
-  //     .then((res) => {
-  //       navigate("/login");
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+      .get(`${process.env.REACT_APP_BACKEND_URL}/logout`)
+      .then((res) => {
+        navigate("/login");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="bg-background h-screen">
@@ -86,12 +84,12 @@ const Dashboard = () => {
               <ion-icon name="ticket-outline"></ion-icon>
               Tickets
             </Link>
-            {/* <Link
+            <Link
               onClick={handleLogout}
               className="font-quicksand font-bold hover:cursor-pointer text-white flex items-center hover:text-lightGray t:text-titleColor t:text-lg  l:py-6 l:pl-2  l:text-xl"
             >
               <ion-icon name="exit-outline"></ion-icon>Logout
-            </Link> */}
+            </Link>
           </ul>
         </div>
       </div>

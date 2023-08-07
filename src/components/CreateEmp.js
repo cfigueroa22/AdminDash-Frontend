@@ -45,10 +45,7 @@ const CreateEmp = () => {
     formData.append("photo", data.photo);
     formData.append("project", data.project);
     axios
-      .post(
-        "https://admindash-server-production.up.railway.app/create",
-        formData
-      )
+      .post(`${process.env.REACT_APP_BACKEND_URL}/create`, formData)
       .then((res) => {
         navigate("/employee");
       })

@@ -19,10 +19,7 @@ const CreateProject = () => {
     formData.append("status", data.status);
     axios
 
-      .post(
-        "https://admindash-server-production.up.railway.app/createProject",
-        data
-      )
+      .post(`${process.env.REACT_APP_BACKEND_URL}/createProject`, data)
       .then((res) => {
         navigate("/projects");
       })

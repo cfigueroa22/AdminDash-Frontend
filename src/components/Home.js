@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get("https://admindash-server-production.up.railway.app/employeeCount")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/employeeCount`)
       .then((res) => {
         setEmployeeCount(res.data[0].employee);
       })
@@ -26,7 +26,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get("https://admindash-server-production.up.railway.app/projectCount")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/projectCount`)
       .then((res) => {
         setProjectCount(res.data[0].project);
       })
@@ -36,7 +36,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get("https://admindash-server-production.up.railway.app/ticketCount")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/ticketCount`)
       .then((res) => {
         setTicketCount(res.data[0].ticket);
       })
@@ -46,9 +46,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(
-        "https://admindash-server-production.up.railway.app/fullTimeEmployeeCount"
-      )
+      .get(`${process.env.REACT_APP_BACKEND_URL}/fullTimeEmployeeCount`)
       .then((res) => {
         setFullTimeEmployees(res.data[0].fullTimeCount);
       })
@@ -58,9 +56,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(
-        "https://admindash-server-production.up.railway.app/partTimeEmployeeCount"
-      )
+      .get(`${process.env.REACT_APP_BACKEND_URL}/partTimeEmployeeCount`)
       .then((res) => {
         setPartTimeEmployees(res.data[0].partTimeCount);
       })
@@ -70,9 +66,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(
-        "https://admindash-server-production.up.railway.app/openProjectCount"
-      )
+      .get(`${process.env.REACT_APP_BACKEND_URL}/openProjectCount`)
       .then((res) => {
         setOpenProjects(res.data[0].openProjectCount);
       })
@@ -82,9 +76,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(
-        "https://admindash-server-production.up.railway.app/closedProjectCount"
-      )
+      .get(`${process.env.REACT_APP_BACKEND_URL}/closedProjectCount`)
       .then((res) => {
         setClosedProjects(res.data[0].closeProjectCount);
       })
@@ -94,9 +86,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(
-        "https://admindash-server-production.up.railway.app/ticketsToDoCount"
-      )
+      .get(`${process.env.REACT_APP_BACKEND_URL}/ticketsToDoCount`)
       .then((res) => {
         setTicketsToDo(res.data[0].openTicketCount);
       })
@@ -106,9 +96,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(
-        "https://admindash-server-production.up.railway.app/ticketsInProgressCount"
-      )
+      .get(`${process.env.REACT_APP_BACKEND_URL}/ticketsInProgressCount`)
       .then((res) => {
         setTicketsInProgress(res.data[0].closedTicketCount);
       })

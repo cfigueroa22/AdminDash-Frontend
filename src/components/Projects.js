@@ -10,7 +10,7 @@ const Projects = () => {
   useEffect(() => {
     axios
 
-      .get("https://admindash-server-production.up.railway.app/getProjects")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/getProjects`)
       .then((res) => {
         if (res.data.Status === "Success") {
           setData(res.data.Result);
@@ -22,10 +22,7 @@ const Projects = () => {
   const deleteProjects = (id) => {
     axios
 
-      .delete(
-        "https://admindash-server-production.up.railway.app/deleteProjects/" +
-          id
-      )
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/deleteProjects/` + id)
       .then((res) => {
         if (res.data.Status === "Success") {
           window.location.reload(true);
