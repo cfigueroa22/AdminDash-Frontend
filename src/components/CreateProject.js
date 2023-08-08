@@ -19,7 +19,7 @@ const CreateProject = () => {
     formData.append("status", data.status);
     axios
 
-      .post(`${process.env.REACT_APP_BACKEND_URL}/createProject`, data)
+      .post("https://employlink-fbfb01f12d56.herokuapp.com/createProject", data)
       .then((res) => {
         navigate("/projects");
       })

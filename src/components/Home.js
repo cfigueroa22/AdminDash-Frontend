@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/employeeCount`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/employeeCount")
       .then((res) => {
         setEmployeeCount(res.data[0].employee);
       })
@@ -26,7 +26,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/projectCount`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/projectCount")
       .then((res) => {
         setProjectCount(res.data[0].project);
       })
@@ -36,7 +36,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/ticketCount`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/ticketCount")
       .then((res) => {
         setTicketCount(res.data[0].ticket);
       })
@@ -46,7 +46,9 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/fullTimeEmployeeCount`)
+      .get(
+        "https://employlink-fbfb01f12d56.herokuapp.com/fullTimeEmployeeCount"
+      )
       .then((res) => {
         setFullTimeEmployees(res.data[0].fullTimeCount);
       })
@@ -56,7 +58,9 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/partTimeEmployeeCount`)
+      .get(
+        "https://employlink-fbfb01f12d56.herokuapp.com/partTimeEmployeeCount"
+      )
       .then((res) => {
         setPartTimeEmployees(res.data[0].partTimeCount);
       })
@@ -66,7 +70,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/openProjectCount`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/openProjectCount")
       .then((res) => {
         setOpenProjects(res.data[0].openProjectCount);
       })
@@ -76,7 +80,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/closedProjectCount`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/closedProjectCount")
       .then((res) => {
         setClosedProjects(res.data[0].closeProjectCount);
       })
@@ -86,7 +90,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/ticketsToDoCount`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/ticketsToDoCount")
       .then((res) => {
         setTicketsToDo(res.data[0].openTicketCount);
       })
@@ -96,7 +100,9 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/ticketsInProgressCount`)
+      .get(
+        "https://employlink-fbfb01f12d56.herokuapp.com/ticketsInProgressCount"
+      )
       .then((res) => {
         setTicketsInProgress(res.data[0].closedTicketCount);
       })

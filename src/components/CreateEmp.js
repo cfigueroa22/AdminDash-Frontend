@@ -45,7 +45,7 @@ const CreateEmp = () => {
     formData.append("photo", data.photo);
     formData.append("project", data.project);
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/create`, formData)
+      .post("https://employlink-fbfb01f12d56.herokuapp.com/create", formData)
       .then((res) => {
         navigate("/employee");
       })

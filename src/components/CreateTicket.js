@@ -23,7 +23,7 @@ const CreateTicket = () => {
     formData.append("assignee", data.assignee);
     axios
 
-      .post(`${process.env.REACT_APP_BACKEND_URL}/createTicket`, data)
+      .post("https://employlink-fbfb01f12d56.herokuapp.com/createTicket", data)
       .then((res) => {
         navigate("/tickets");
       })

@@ -10,7 +10,7 @@ const Projects = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/getProjects`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/getProjects")
       .then((res) => {
         if (res.data.Status === "Success") {
           setData(res.data.Result);
@@ -22,7 +22,9 @@ const Projects = () => {
   const deleteProjects = (id) => {
     axios
 
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/deleteProjects/` + id)
+      .delete(
+        "https://employlink-fbfb01f12d56.herokuapp.com/deleteProjects/" + id
+      )
       .then((res) => {
         if (res.data.Status === "Success") {
           window.location.reload(true);

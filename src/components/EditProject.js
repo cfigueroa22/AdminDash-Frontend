@@ -15,7 +15,7 @@ const EditProject = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/getProject/` + id)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/getProject/" + id)
       .then((res) => {
         if (res.data.Result.length > 0) {
           const { name, desc, status } = res.data.Result[0];
@@ -36,7 +36,10 @@ const EditProject = () => {
     e.preventDefault();
     axios
 
-      .put(`${process.env.REACT_APP_BACKEND_URL}/updateProject/` + id, data)
+      .put(
+        "https://employlink-fbfb01f12d56.herokuapp.com/updateProject/" + id,
+        data
+      )
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/projects");

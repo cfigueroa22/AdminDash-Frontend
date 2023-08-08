@@ -11,17 +11,19 @@ const Dashboard = () => {
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/dashboard`).then((res) => {
-      if (res.data.Status === "Success") {
-        navigate("/");
-      }
-    });
+    axios
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/dashboard")
+      .then((res) => {
+        if (res.data.Status === "Success") {
+          navigate("/");
+        }
+      });
   }, [navigate]);
 
   const handleLogout = () => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/logout`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/logout")
       .then((res) => {
         navigate("/login");
       })

@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     axios
 
-      .post(`${process.env.REACT_APP_BACKEND_URL}/login`, values)
+      .post("https://employlink-fbfb01f12d56.herokuapp.com/login", values)
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/");

@@ -28,7 +28,7 @@ const EditEmployee = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/get/` + id)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/get/" + id)
       .then((res) => {
         if (res.data.Result.length > 0) {
           const {
@@ -75,7 +75,7 @@ const EditEmployee = () => {
     e.preventDefault();
     axios
 
-      .put(`${process.env.REACT_APP_BACKEND_URL}/update/` + id, data)
+      .put("https://employlink-fbfb01f12d56.herokuapp.com/update/" + id, data)
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/employee");

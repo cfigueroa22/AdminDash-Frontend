@@ -10,7 +10,7 @@ const Tickets = () => {
   useEffect(() => {
     axios
 
-      .get(`${process.env.REACT_APP_BACKEND_URL}/getTickets`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/getTickets")
       .then((res) => {
         if (res.data.Status === "Success") {
           setData(res.data.Result);
@@ -22,7 +22,9 @@ const Tickets = () => {
   const deleteTicket = (id) => {
     axios
 
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/deleteTickets/` + id)
+      .delete(
+        "https://employlink-fbfb01f12d56.herokuapp.com/deleteTickets/" + id
+      )
       .then((res) => {
         if (res.data.Status === "Success") {
           window.location.reload(true);

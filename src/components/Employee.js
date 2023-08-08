@@ -11,7 +11,7 @@ const Employee = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/getEmployees`)
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/getEmployees")
       .then((res) => {
         if (res.data.Status === "Success") {
           setData(res.data.Result);
@@ -34,7 +34,7 @@ const Employee = () => {
   const handleDelete = (id) => {
     axios
 
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/delete/` + id)
+      .delete("https://employlink-fbfb01f12d56.herokuapp.com/delete/" + id)
       .then((res) => {
         if (res.data.Status === "Success") {
           window.location.reload(true);
@@ -68,7 +68,13 @@ const Employee = () => {
                 className="flex flex-col t:flex-row border-b-2 border-lightGray mb-8 mx-5 t:items-center t:pb-10"
               >
                 <div className="mb-7 w-56 mx-auto t:mx-0">
-                  <img src={"/images/" + employee.photo} alt="emp" />
+                  <img
+                    src={
+                      "https://employlink-fbfb01f12d56.herokuapp.com/images/" +
+                      employee.photo
+                    }
+                    alt="emp"
+                  />
                 </div>
                 <div
                   key={index}
