@@ -215,7 +215,7 @@ const Home = () => {
 
   return (
     <div className="bg-background py-7 t:py-3">
-      <div className="flex flex-col items-center gap-3 pt-5 mx-5 mt-8  rounded-md t:flex-row t:justify-center l:mr-36 l:ml-72">
+      <div className="flex flex-col items-center gap-3 pt-5 mx-5 mt-8 border-b-2 border-lightGray t:flex-row t:justify-center l:mr-36 l:ml-72">
         <div className="mb-10 flex flex-col items-center">
           <div className="bg-pastelRed text-white flex flex-col items-center p-2 rounded-md w-72 t:w-56">
             <h2 className="font-quicksand font-bold text-center text-4xl t:text-xl">
