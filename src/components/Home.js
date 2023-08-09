@@ -127,37 +127,15 @@ const Home = () => {
       openProjects !== undefined &&
       closedProjects !== undefined &&
       ticketsToDo !== undefined &&
-      ticketsInProgress !== undefined &&
-      employeeCount !== 0 &&
-      projectCount !== 0 &&
-      ticketCount !== 0 &&
-      devCount !== 0
+      ticketsInProgress !== undefined
     ) {
       createCharts();
     }
   });
 
   const createCharts = () => {
-    let employeeChartInstance,
-      projectChartInstance,
-      ticketChartInstance,
-      barChartInstance;
-
-    if (employeeChartInstance) {
-      employeeChartInstance.destroy();
-    }
-    if (projectChartInstance) {
-      projectChartInstance.destroy();
-    }
-    if (ticketChartInstance) {
-      ticketChartInstance.destroy();
-    }
-    if (barChartInstance) {
-      barChartInstance.destroy();
-    }
-
     const ctx1 = document.getElementById("employeeChart").getContext("2d");
-    employeeChartInstance = new Chart(ctx1, {
+    new Chart(ctx1, {
       type: "doughnut",
       data: {
         labels: ["Full-Time Employees", "Part-Time Employees"],
@@ -173,7 +151,7 @@ const Home = () => {
     });
 
     const ctx2 = document.getElementById("projectChart").getContext("2d");
-    projectChartInstance = new Chart(ctx2, {
+    new Chart(ctx2, {
       type: "doughnut",
       data: {
         labels: ["Open Projects", "Closed Projects"],
@@ -189,7 +167,7 @@ const Home = () => {
     });
 
     const ctx3 = document.getElementById("ticketChart").getContext("2d");
-    ticketChartInstance = new Chart(ctx3, {
+    new Chart(ctx3, {
       type: "doughnut",
       data: {
         labels: ["Tickets To Do", "Tickets In Progress"],
@@ -205,7 +183,7 @@ const Home = () => {
     });
 
     const ctx4 = document.getElementById("barChart").getContext("2d");
-    barChartInstance = new Chart(ctx4, {
+    new Chart(ctx4, {
       type: "bar",
       data: {
         labels: ["Projects", "Developers"],
