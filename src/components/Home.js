@@ -133,6 +133,20 @@ const Home = () => {
     }
   });
 
+  const isDataLoaded =
+    fullTimeEmployees !== 0 &&
+    partTimeEmployees !== 0 &&
+    openProjects !== 0 &&
+    closedProjects !== 0 &&
+    ticketsToDo !== 0 &&
+    ticketsInProgress !== 0;
+
+  useEffect(() => {
+    if (isDataLoaded) {
+      createCharts();
+    }
+  }, [isDataLoaded]);
+
   const createCharts = () => {
     let employeeChartInstance,
       projectChartInstance,
