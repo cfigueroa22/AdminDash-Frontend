@@ -12,6 +12,7 @@ const Home = () => {
   const [closedProjects, setClosedProjects] = useState();
   const [ticketsToDo, setTicketsToDo] = useState();
   const [ticketsInProgress, setTicketsInProgress] = useState();
+  const [devCount, setDevCount] = useState();
 
   useEffect(() => {
     axios
@@ -110,7 +111,16 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Set dataFetched to true after all API calls are completed
+    axios
+
+      .get("http://localhost:8080/developerCount")
+      .then((res) => {
+        setDevCount(res.data[0].developerCount);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
     if (
       fullTimeEmployees !== undefined &&
       partTimeEmployees !== undefined &&
@@ -172,14 +182,43 @@ const Home = () => {
         ],
       },
     });
+
+    const ctx4 = document.getElementById("barChart").getContext("2d");
+    new Chart(ctx4, {
+      type: "bar",
+      data: {
+        labels: ["Projects", "Developers"],
+        datasets: [
+          {
+            axis: "y",
+            label: ["Projects vs. Developers"],
+            data: [projectCount, devCount],
+            backgroundColor: ["#FFB6C1", "#ADD8E6"],
+            borderColor: ["#FFB6C1", "#ADD8E6"],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        indexAxis: "y",
+        scales: {
+          x: {
+            beginAtZero: true,
+          },
+        },
+        title: {
+          display: false,
+        },
+      },
+    });
   };
 
   return (
     <div className="bg-background py-7 t:py-3">
-      <div className="flex flex-col items-center gap-3 pt-5 bg-divColor mx-5 mt-8  rounded-md t:flex-row t:justify-center l:mr-36 l:ml-72">
+      <div className="flex flex-col items-center gap-3 pt-5 mx-5 mt-8  rounded-md t:flex-row t:justify-center l:mr-36 l:ml-72">
         <div className="mb-10 flex flex-col items-center">
           <div className="bg-pastelRed text-white flex flex-col items-center p-2 rounded-md w-72 t:w-56">
-            <h2 className="font-quicksand font-bold text-4xl t:text-xl">
+            <h2 className="font-quicksand font-bold text-center text-4xl t:text-xl">
               Total Employees
             </h2>
             <span className="text-5xl font-bold">{employeeCount}</span>
@@ -210,6 +249,16 @@ const Home = () => {
           <div className="my-4 w-80 t:w-60">
             <canvas id="ticketChart" width="100" height="100"></canvas>
           </div>
+        </div>
+      </div>
+      <div className="w-full flex justify-center items-center mt-10">
+        <div>
+          <canvas
+            className="w-1/2 t:w-3/4"
+            id="barChart"
+            width="700"
+            height="300"
+          ></canvas>
         </div>
       </div>
     </div>
