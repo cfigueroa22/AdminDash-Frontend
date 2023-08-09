@@ -134,7 +134,10 @@ const Home = () => {
   });
 
   const createCharts = () => {
-    // Chart.js configuration
+    Chart.helpers.each(Chart.instances, (instance) => {
+      instance.destroy();
+    });
+
     const ctx1 = document.getElementById("employeeChart").getContext("2d");
     new Chart(ctx1, {
       type: "doughnut",
