@@ -127,25 +127,15 @@ const Home = () => {
       openProjects !== undefined &&
       closedProjects !== undefined &&
       ticketsToDo !== undefined &&
-      ticketsInProgress !== undefined
+      ticketsInProgress !== undefined &&
+      employeeCount !== 0 &&
+      projectCount !== 0 &&
+      ticketCount !== 0 &&
+      devCount !== 0
     ) {
       createCharts();
     }
   });
-
-  const isDataLoaded =
-    fullTimeEmployees !== 0 &&
-    partTimeEmployees !== 0 &&
-    openProjects !== 0 &&
-    closedProjects !== 0 &&
-    ticketsToDo !== 0 &&
-    ticketsInProgress !== 0;
-
-  useEffect(() => {
-    if (isDataLoaded) {
-      createCharts();
-    }
-  }, [isDataLoaded]);
 
   const createCharts = () => {
     let employeeChartInstance,
