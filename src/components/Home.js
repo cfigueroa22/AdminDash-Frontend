@@ -127,7 +127,8 @@ const Home = () => {
       openProjects !== undefined &&
       closedProjects !== undefined &&
       ticketsToDo !== undefined &&
-      ticketsInProgress !== undefined
+      ticketsInProgress !== undefined &&
+      devCount !== undefined
     ) {
       createCharts();
     }
