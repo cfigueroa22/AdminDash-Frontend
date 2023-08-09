@@ -113,7 +113,7 @@ const Home = () => {
   useEffect(() => {
     axios
 
-      .get("http://localhost:8080/developerCount")
+      .get("https://employlink-fbfb01f12d56.herokuapp.com/developerCount")
       .then((res) => {
         setDevCount(res.data[0].developerCount);
       })
