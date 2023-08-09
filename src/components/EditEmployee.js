@@ -94,7 +94,7 @@ const EditEmployee = () => {
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-3">
               <div className="ml-1 t:flex t:justify-center">
-                <label className="text-xl t:text-2xl">
+                <label className="text-xl font-roboto font-semibold t:text-2xl">
                   Employee Information
                 </label>
               </div>
