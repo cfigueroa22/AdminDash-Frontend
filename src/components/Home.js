@@ -134,8 +134,26 @@ const Home = () => {
   });
 
   const createCharts = () => {
+    let employeeChartInstance,
+      projectChartInstance,
+      ticketChartInstance,
+      barChartInstance;
+
+    if (employeeChartInstance) {
+      employeeChartInstance.destroy();
+    }
+    if (projectChartInstance) {
+      projectChartInstance.destroy();
+    }
+    if (ticketChartInstance) {
+      ticketChartInstance.destroy();
+    }
+    if (barChartInstance) {
+      barChartInstance.destroy();
+    }
+
     const ctx1 = document.getElementById("employeeChart").getContext("2d");
-    const employeeChartInstance = new Chart(ctx1, {
+    employeeChartInstance = new Chart(ctx1, {
       type: "doughnut",
       data: {
         labels: ["Full-Time Employees", "Part-Time Employees"],
@@ -151,7 +169,7 @@ const Home = () => {
     });
 
     const ctx2 = document.getElementById("projectChart").getContext("2d");
-    const projectChartInstance = new Chart(ctx2, {
+    projectChartInstance = new Chart(ctx2, {
       type: "doughnut",
       data: {
         labels: ["Open Projects", "Closed Projects"],
@@ -167,7 +185,7 @@ const Home = () => {
     });
 
     const ctx3 = document.getElementById("ticketChart").getContext("2d");
-    const ticketChartInstance = new Chart(ctx3, {
+    ticketChartInstance = new Chart(ctx3, {
       type: "doughnut",
       data: {
         labels: ["Tickets To Do", "Tickets In Progress"],
@@ -183,7 +201,7 @@ const Home = () => {
     });
 
     const ctx4 = document.getElementById("barChart").getContext("2d");
-    const barChartInstance = new Chart(ctx4, {
+    barChartInstance = new Chart(ctx4, {
       type: "bar",
       data: {
         labels: ["Projects", "Developers"],
@@ -210,19 +228,6 @@ const Home = () => {
         },
       },
     });
-
-    if (employeeChartInstance) {
-      employeeChartInstance.destroy();
-    }
-    if (projectChartInstance) {
-      projectChartInstance.destroy();
-    }
-    if (ticketChartInstance) {
-      ticketChartInstance.destroy();
-    }
-    if (barChartInstance) {
-      barChartInstance.destroy();
-    }
   };
 
   return (
