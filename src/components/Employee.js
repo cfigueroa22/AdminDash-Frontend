@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, React } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Employee = () => {
   const [data, setData] = useState([]);
@@ -8,6 +8,8 @@ const Employee = () => {
   const [flexRowClasses, setFlexRowClasses] = useState(
     new Array(1).fill(false)
   );
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -37,7 +39,7 @@ const Employee = () => {
       .delete("https://employlink-fbfb01f12d56.herokuapp.com/delete/" + id)
       .then((res) => {
         if (res.data.Status === "Success") {
-          window.location.href = "https://employlink.netlify.app/employee";
+          navigate("/employee");
         } else {
           alert("Error");
         }
