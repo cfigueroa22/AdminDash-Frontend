@@ -155,7 +155,7 @@ const Home = () => {
     new Chart(ctx2, {
       type: "doughnut",
       data: {
-        labels: ["Open Projects", "Closed Projects"],
+        labels: ["Projects To Do", "Projects In Progress"],
         datasets: [
           {
             data: [openProjects, closedProjects],
@@ -171,7 +171,7 @@ const Home = () => {
     new Chart(ctx3, {
       type: "doughnut",
       data: {
-        labels: ["Tickets To Do", "Tickets In Progress"],
+        labels: ["Open Tickets", "Closed Tickets"],
         datasets: [
           {
             data: [ticketsToDo, ticketsInProgress],
