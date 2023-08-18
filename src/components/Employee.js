@@ -37,7 +37,7 @@ const Employee = () => {
       .delete("https://employlink-fbfb01f12d56.herokuapp.com/delete/" + id)
       .then((res) => {
         if (res.data.Status === "Success") {
-          window.location.reload(true);
+          window.location.reload();
         } else {
           alert("Error");
         }
