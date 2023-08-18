@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Projects = () => {
   const [data, setData] = useState([]);
@@ -27,8 +28,17 @@ const Projects = () => {
       )
       .then((res) => {
         if (res.data.Status === "Success") {
-          window.location.reload(true);
-          navigate("/projects");
+          navigate("/");
+          toast.success("Project Deleted", {
+            position: "top-center",
+            autoClose: 2200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         } else {
           alert("Error");
         }

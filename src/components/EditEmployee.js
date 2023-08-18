@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const EditEmployee = () => {
   const [data, setData] = useState({
@@ -79,6 +80,16 @@ const EditEmployee = () => {
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/employee");
+          toast.info("Employee Updated", {
+            position: "top-center",
+            autoClose: 2200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         }
       })
       .catch((err) => console.log(err));

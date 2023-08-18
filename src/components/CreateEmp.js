@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const CreateEmp = () => {
   const [data, setData] = useState({
@@ -48,6 +49,16 @@ const CreateEmp = () => {
       .post("https://employlink-fbfb01f12d56.herokuapp.com/create", formData)
       .then((res) => {
         navigate("/employee");
+        toast.info("Employee Created", {
+          position: "top-center",
+          autoClose: 2200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       })
       .catch((err) => console.log(err));
   };

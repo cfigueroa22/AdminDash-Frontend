@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, React } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CreateTicket = () => {
   const [data, setData] = useState({
@@ -26,6 +27,16 @@ const CreateTicket = () => {
       .post("https://employlink-fbfb01f12d56.herokuapp.com/createTicket", data)
       .then((res) => {
         navigate("/tickets");
+        toast.info("Ticket Created", {
+          position: "top-center",
+          autoClose: 2200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       })
       .catch((err) => console.log(err));
   };

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState, React } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Employee = () => {
   const [data, setData] = useState([]);
@@ -40,6 +41,16 @@ const Employee = () => {
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/");
+          toast.success("Employee Deleted", {
+            position: "top-center",
+            autoClose: 2200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         } else {
           alert("Error");
         }

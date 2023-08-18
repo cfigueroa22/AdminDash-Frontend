@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const EditProject = () => {
   const [data, setData] = useState({
@@ -48,6 +49,16 @@ const EditProject = () => {
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/tickets");
+          toast.info("Ticket Updated", {
+            position: "top-center",
+            autoClose: 2200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         }
       })
       .catch((err) => console.log(err));
